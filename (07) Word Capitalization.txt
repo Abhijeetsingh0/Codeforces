@@ -1,0 +1,24 @@
+//link => https://codeforces.com/problemset/problem/281/A
+//solution 
+//package com.company;
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String man = sc.next();
+
+        String ans = "";
+        char fir_char = man.charAt(0);
+        ans += Character.toUpperCase(fir_char);
+        for(int i = 1 ; i<=man.length()-1; i++){
+            ans += man.charAt(i);
+        }
+
+        System.out.println(ans);
+
+        }
+    }
