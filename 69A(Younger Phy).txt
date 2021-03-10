@@ -1,0 +1,38 @@
+// link of the problem : https://codeforces.com/problemset/problem/69/A
+// my solution 
+import java.math.BigInteger;
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Scanner sc = new Scanner(System.in);
+        int xSum = 0 , ySum = 0 , zSum = 0;
+        int t = sc.nextInt();
+        for(int i = 1 ; i<= t ; i++){
+            for(int j = 1 ; j <= 3 ; j++){
+                if(j == 1) {
+                    xSum += sc.nextInt();
+                }else if(j == 2){
+                    ySum += sc.nextInt();
+                }else{
+                    xSum +=  sc.nextInt();
+                }
+            }
+        }
+
+        if(xSum == 0 && ySum == 0 && xSum == 0) {
+            System.out.println("YES");
+        }else{
+            System.out.println("NO");
+        }
+      }
+    }
+
+
+
+
+
+

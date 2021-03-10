@@ -1,0 +1,47 @@
+// link of the problemset is : https://codeforces.com/problemset/problem/266/B
+//my solution 
+//package com.company;
+import java.math.BigInteger;
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+
+    public static String swap(String man ,int len, int idx){
+        String ans = "";
+        for(int i  = 0 ; i <= len ; i++){
+            if(i == idx) {
+                ans += man.charAt(i + 1);
+                ans += man.charAt(i);
+                i += 1;
+            }else {
+                ans += man.charAt(i);
+            }
+        }
+        return ans;
+    }
+
+    public static String fun(String str , int len ){
+        String ans = str;
+        for(int i = 0 ; i <= len-1 ; i++){
+            if(ans.charAt(i) == 'B' &&  ans.charAt(i+1)== 'G'){
+               ans = swap(ans , len , i);
+               i += 1;
+            }
+        }
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int len = sc.nextInt();
+        int num_t = sc.nextInt();
+        String man = sc.next();
+        String anss = "";
+        for(int j = 1 ; j <= num_t ; j++){
+            man = fun(man , len - 1);
+        }
+        System.out.println(man);
+        //System.out.println(fun("GGGB",3));
+        }
+    }
