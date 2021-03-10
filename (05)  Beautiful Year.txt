@@ -1,0 +1,31 @@
+//link => https://codeforces.com/problemset/problem/271/A
+//solution 
+//package com.company;
+import java.math.BigInteger;
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static boolean check(int num){
+        String man = String.valueOf(num);
+        for(int i = 0 ; i <= man.length()-1;i++){
+            for(int j = i+1 ; j <= man.length()-1;j++){
+                if(man.charAt(i) == man.charAt(j)){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        while(true){
+            num += 1;
+            if(check(num)){
+                break;
+            }
+        }
+        System.out.println(num);
+        }
+    }
