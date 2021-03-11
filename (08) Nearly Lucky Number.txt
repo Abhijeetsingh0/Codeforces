@@ -1,0 +1,28 @@
+//link => https://codeforces.com/problemset/problem/110/A
+//solution 
+//package com.company;
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long a = sc.nextLong();
+        long x;
+        int y = 0;
+        while(a > 0){
+            x = a%10;
+            if(x == 4 || x == 7){
+                y +=1 ;
+            }
+            a = a/10;
+        }
+        if(y==4||y==47||y==74||y==44||y==7){
+            System.out.println("YES");
+        }else{
+            System.out.println("NO");
+        }
+    }
+}
