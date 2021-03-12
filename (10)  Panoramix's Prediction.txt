@@ -1,0 +1,45 @@
+//link => https://codeforces.com/problemset/problem/80/A
+//solution 
+//isPrime fun. can be more optimise
+//package com.company;
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+
+    public static boolean isPrime(int num){
+        for(int i = 2 ; i <= num-1 ; i++){
+            if(num%i == 0){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int first = sc.nextInt();
+        int next = sc.nextInt();
+        int temp = first + 1;
+
+        if(isPrime(next)){
+            while(true){
+                if(isPrime(temp) && temp == next){
+                    System.out.println("YES");
+                    break;
+                }else if(isPrime(temp) && temp != next){
+                    System.out.println("NO");
+                    break;
+                }else{
+                    temp += 1;
+                }
+            }
+        }else{
+            System.out.println("NO");
+        }
+    }
+}
