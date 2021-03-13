@@ -1,0 +1,37 @@
+//link => https://codeforces.com/problemset/problem/144/A
+//solution 
+//package com.company;
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int test_case = sc.nextInt();
+        int small_val , large_val , small_ind , large_ind ;
+        int first_val = sc.nextInt();
+        small_val = first_val;
+        large_val = first_val;
+        small_ind = 1;
+        large_ind = 1;
+        for(int i= 2 ; i <= test_case;i++ ){
+            int temp = sc.nextInt();
+            if(temp <= small_val){
+                small_val = temp;
+                small_ind = i;
+            }else if(temp > large_val){
+                large_val = temp;
+                large_ind = i;
+            }
+        }
+//        System.out.println(small_ind+" val :- "+small_val);
+//        System.out.println(large_ind+" val :- "+large_val);
+
+        if(small_ind < large_ind){
+            System.out.println((test_case-small_ind)+large_ind-2);
+        }else {
+            System.out.println((test_case-small_ind)+large_ind-1);
+        }
+    }
+}
