@@ -1,0 +1,26 @@
+//link => https://codeforces.com/problemset/problem/148/A
+//solution 
+//package com.company;
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n1,n2,n3,n4,n5;
+        n1 = sc.nextInt();
+        n2 = sc.nextInt();
+        n3 = sc.nextInt();
+        n4 = sc.nextInt();
+        n5 = sc.nextInt();
+        int rem = n5%n4;
+        int count = 0;
+        for(int i = 1; i <= n5 ; i ++){
+            if(i%n1 != 0 && i%n2 != 0 && i%n3 != 0  && i%n4 != 0){
+                count += 1;
+            }
+        }
+        System.out.println(n5- count);
+    }
+}
