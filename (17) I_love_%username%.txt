@@ -1,0 +1,28 @@
+//link => https://codeforces.com/problemset/problem/155/A
+//solution 
+//package com.company;
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc  = new Scanner(System.in);
+        int num = sc.nextInt();
+        int best,worst,ans=0;
+        int t = sc.nextInt();
+        best = t;
+        worst = t;
+        for(int i = 1 ; i <= num-1 ; i++){
+            int temp = sc.nextInt();
+            if(temp > best){
+                ans += 1;
+                best = temp;
+            }else if(temp < worst){
+                ans += 1;
+                worst = temp;
+            }
+        }
+        System.out.println(ans);
+    }
+}
