@@ -1,0 +1,23 @@
+//link => https://codeforces.com/problemset/problem/248/A
+//solution 
+//package com.company;
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        int lopen = 0 ,lclose = 0 ,ropen = 0 ,rclose = 0 ;
+        for(int i = 1 ; i <= num ; i++){
+            byte l = sc.nextByte();
+            byte r = sc.nextByte();
+            if( l == 1) lopen += 1;
+            else lclose += 1;
+            if(r == 1) ropen += 1;
+            else rclose += 1;
+        }
+        System.out.println(Math.min(lopen,lclose)+Math.min(rclose,ropen));
+    }
+}
