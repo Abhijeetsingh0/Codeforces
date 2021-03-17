@@ -1,0 +1,27 @@
+//link => https://codeforces.com/problemset/problem/129/A
+//solution 
+//package com.company;
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc  = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        int total_sum = 0;
+        int ans = 0;
+        for(int i = 0 ; i <= n-1 ; i++){
+            int temp = sc.nextInt();
+            total_sum += temp;
+            arr[i] = temp;
+        }
+        for(int i : arr){
+            if((total_sum - i)%2==0){
+                ans += 1;
+            }
+        }
+        System.out.println(ans);
+    }
+}
