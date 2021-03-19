@@ -1,0 +1,21 @@
+//link => https://codeforces.com/contest/231/problem/A
+//solution 
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        int ans = 0;
+        for(int i = 1 ; i<= num ; i++){
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            int c = sc.nextInt();
+            if((a == 1 && b == 1) || (a == 1 & c == 1) || (b == 1 && c == 1) )
+                ans += 1;
+        }
+        System.out.println(ans);
+    }
+}
