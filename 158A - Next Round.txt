@@ -1,0 +1,32 @@
+//link => https://codeforces.com/problemset/problem/158/A
+//solution 
+//package com.company;
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        int comp_n = sc.nextInt();
+        int num =0  , ans = 0 ;
+        int got_zero = 0;
+        for(int i = 0 ; i <= n-1 ; i++){
+            arr[i] = sc.nextInt();
+            if(i+1 == comp_n)
+                num = arr[i];
+            if(arr[i] == 0)
+                got_zero ++;
+        }
+        for(int i = 0 ; i <= n-1 ; i++){
+            if(arr[i] >= num && arr[i] != 0)
+                ans ++;
+        }
+        if(got_zero == n)
+            System.out.println(0);
+        else
+            System.out.println(ans);
+    }
+}
