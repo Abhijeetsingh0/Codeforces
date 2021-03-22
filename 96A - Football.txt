@@ -1,0 +1,42 @@
+//link => https://codeforces.com/problemset/problem/96/A
+//sol
+//package com.company;
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+
+public class Main {
+
+    public static boolean check(int num){
+        if(num >= 7)
+            return true;
+        else
+            return false;
+    }
+
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      String input = sc.next();
+      int count = 1;
+      boolean cond = true;
+      int current = Integer.parseInt(String.valueOf(input.charAt(0)));
+      for(int i = 1 ; i <= input.length()-1;i++){
+          //System.out.println("loop:-" +count+" "+current + " " + Integer.parseInt(String.valueOf(input.charAt(i))));
+         if(current == Integer.parseInt(String.valueOf(input.charAt(i)))){
+             count += 1;
+            // System.out.println("condition:- "+count+" "+current + " " + Integer.parseInt(String.valueOf(input.charAt(i))));
+             if(check(count)) {
+                 System.out.println("YES");
+                 cond = false;
+                 break;
+             }
+         }else{
+             count = 1;
+             current = Integer.parseInt(String.valueOf(input.charAt(i)));
+         }
+      }
+      if(cond){
+          System.out.println("NO");
+      }
+    }
+}
