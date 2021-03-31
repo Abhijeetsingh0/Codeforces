@@ -1,0 +1,31 @@
+//link => https://codeforces.com/problemset/problem/58/A
+//sol
+//package com.company;
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.next();
+        String hlo = "hello";
+        int count = 0;
+        int jp = 0;
+        for(int i = 0 ; i<= hlo.length()-1; i++){
+            for(int j = jp ; j <= input.length()-1; j++ ){
+                //for debug
+                //System.out.println(hlo.charAt(i)+" "+input.charAt(j)+" "+count+" "+jp);
+                if(hlo.charAt(i) == input.charAt(j)){
+                    count ++ ;
+                    jp = j+1;
+                    break;
+                }
+            }
+        }
+        if(count == 5)
+            System.out.println("YES");
+        else
+            System.out.println("NO");
+    }
+}
