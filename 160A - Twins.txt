@@ -1,0 +1,32 @@
+//link => https://codeforces.com/problemset/problem/160/A
+//sol 
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int testC = sc.nextInt();
+        int[] arr = new int[testC];
+        for(int i = 0 ; i<= testC-1;i++) {
+            arr[i] = sc.nextInt();
+        }
+        Arrays.sort(arr);
+        int count = 0;
+        int totalSum = 0;
+        int currSum = 0;
+        for(int i : arr)
+            totalSum += i;
+        for(int i = testC-1 ; i >= 0; i--){
+            if(currSum > totalSum){
+                break;
+            }else{
+                currSum += arr[i];
+                totalSum -= arr[i];
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
