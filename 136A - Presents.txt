@@ -1,0 +1,20 @@
+//link => https://codeforces.com/problemset/problem/136/A
+//sol 
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Hashtable<Integer,Integer> ht1 = new Hashtable<Integer,Integer>();
+        for(int i = 1  ; i <= n ; i++){
+            int temp = sc.nextInt();
+            ht1.put(temp,i);
+        }
+        for(int i = 1  ; i <= n ; i++){
+            System.out.print(ht1.get(i)+" ");
+        }
+    }
+}
