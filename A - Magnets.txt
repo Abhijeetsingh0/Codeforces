@@ -1,0 +1,27 @@
+//link => https://codeforces.com/contest/344/problem/A
+//sol
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if(n == 1){
+            System.out.println(1);
+        }else{
+            int count = 1;
+            String curr = sc.next();
+            for(int i = 1 ; i <= n-1 ; i++){
+                String temp = sc.next();
+                //System.out.println(curr.equals(temp));
+                if(!curr.equals(temp)){
+                    count++;
+                    curr = temp;
+                }
+            }
+            System.out.println(count);
+        }
+    }
+}
