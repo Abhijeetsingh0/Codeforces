@@ -1,0 +1,24 @@
+//link=> https://codeforces.com/problemset/problem/318/A
+//sol 
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long n = sc.nextLong();
+        long k = sc.nextLong();
+        long mid = 0;
+        if(n%2==0){
+            mid = n/2;
+        }else{
+            mid = n/2 + 1;
+        }
+        if(k <= mid){
+            System.out.println(k+k-1);
+        }else{
+            System.out.println((k-mid)*2);
+        }
+    }
+}
