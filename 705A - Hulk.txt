@@ -1,0 +1,24 @@
+//link => https://codeforces.com/problemset/problem/705/A
+//sol 
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String ans = "";
+        for(int i = 1 ; i <= n-1; i ++){
+            if(i%2 != 0)
+                ans += "I hate that ";
+            else
+                ans += "I love that ";
+        }
+        if(n % 2!= 0 )
+            ans += "I hate it";
+        else
+            ans += "I love it";
+        System.out.println(ans);
+    }
+}
