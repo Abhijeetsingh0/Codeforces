@@ -1,0 +1,29 @@
+//link => https://codeforces.com/contest/131/problem/A
+//sol 
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+ 
+public class Main {
+    public static String change(char fir,String str){
+        String ans = "";
+        ans  += Character.toUpperCase(fir);
+        ans += str.toLowerCase();
+        return ans;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.next();
+        String SS = input.substring(1,input.length());
+        char fir = input.charAt(0);
+        String temp = SS.toUpperCase();
+        if(SS.equals(SS.toUpperCase())  &&  Character.isLowerCase(fir)){
+            System.out.println(change(fir,SS));
+        }else if (input.equals(input.toUpperCase())) {
+            System.out.println(input.toLowerCase());
+        }else
+        {
+            System.out.println(input);
+        }
+    }
+}
