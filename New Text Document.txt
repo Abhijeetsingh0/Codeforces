@@ -1,0 +1,19 @@
+//link => https://codeforces.com/problemset/problem/479/A
+//sol
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int i = sc.nextInt();
+        int j = sc.nextInt();
+        int k = sc.nextInt();
+        int a =   i*j*k;
+        int b =   (i+j)*k;
+        int c =   i*(j+k);
+        int d =   i + j + k;
+        System.out.println(Math.max(Math.max(a,b),Math.max(c,d)));
+    }
+} 
