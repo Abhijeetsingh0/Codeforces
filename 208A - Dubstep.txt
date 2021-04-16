@@ -1,0 +1,15 @@
+//link => https://codeforces.com/problemset/problem/208/A
+//sol 
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        String ans = "";
+        str = str.replaceAll("WUB"," ");
+        System.out.println(str.replaceAll("\\s+", " ").strip());
+    }
+}
