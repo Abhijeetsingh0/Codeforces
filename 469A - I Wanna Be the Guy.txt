@@ -1,0 +1,26 @@
+//link => https://codeforces.com/problemset/problem/469/A
+//sol
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        int p1 = sc.nextInt();
+        for(int i = 0 ; i<= p1 -1 ; i++)
+            arr.add(sc.nextInt());
+        int p2 = sc.nextInt();
+        for(int i = 0 ; i<= p2 -1 ; i++)
+            arr.add(sc.nextInt());
+        Collections.sort(arr);
+        for(int i = 0 ; i <= arr.size()-2; i ++){
+            if(arr.get(i)==arr.get(i + 1)){
+                arr.remove(i+1);
+            }
+        }
+        System.out.println(arr.size() == n ? "I become the guy." : "Oh, my keyboard!");
+    }
+}
