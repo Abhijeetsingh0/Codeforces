@@ -1,0 +1,49 @@
+//link => https://codeforces.com/contest/443/problem/A
+//sol 
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+import java.io.*;
+ 
+public class Main {
+    static String removeDuplicate(char str[], int n)
+    {
+        int index = 0;
+        for (int i = 0; i < n; i++)
+        {
+            int j;
+            for (j = 0; j < i; j++)
+            {
+                if (str[i] == str[j])
+                {
+                    break;
+                }
+            }
+            if (j == i)
+            {
+                str[index++] = str[i];
+            }
+        }
+        return String.valueOf(Arrays.copyOf(str, index));
+    }
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String Line;
+        while(true) {
+            Line = new String(scan.nextLine());
+            break;
+        }
+        String ans = "";
+        ArrayList<Character> arr = new ArrayList<Character>();
+        for(int i = 0 ; i <= Line.length()-1 ; i++){
+            if(Line.charAt(i)!= '{' && Line.charAt(i) != ',' && Line.charAt(i) != ' ' && Line.charAt(i)!='}'){
+                ans += Line.charAt(i);
+            }
+        }
+ 
+        char str[] = ans.toCharArray();
+        int n = ans.length();
+        String h = removeDuplicate(str, n);
+        System.out.println(h.length());
+    }
+}
