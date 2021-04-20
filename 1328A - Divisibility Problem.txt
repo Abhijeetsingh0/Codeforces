@@ -1,0 +1,28 @@
+//link => https://codeforces.com/problemset/problem/1328/A
+//sol 
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+import java.io.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
+      int ans[] = new int[n];
+      for(int i = 0; i < n; i++){
+          int a = sc.nextInt();
+          int b = sc.nextInt();
+          if(a >b) {
+              if(a%b == 0)
+                  ans[i] = 0;
+              else
+                  ans[i] =b - a % b;
+          }else{
+              ans[i] = b-a;
+          }
+      }
+      for(int i : ans)
+          System.out.println(i);
+    }
+}
