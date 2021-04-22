@@ -1,0 +1,49 @@
+//link => https://codeforces.com/problemset/problem/4/C
+//sol 
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    public static boolean check(HashMap<String,Integer> db ,String str){
+        return db.containsKey(str);
+    }
+    public static String Genrate(HashMap<String,Integer> db , String str , int k){
+        String man = str;
+        int i = k+1;
+        while(true){
+            man += String.valueOf(i);
+            if(check(db,man)){
+                i += 1;
+            }else{
+                break;
+            }
+        }
+        return man;
+    }
+    public static void main(String[] args) {
+       Scanner sc = new  Scanner(System.in);
+       int n =  sc.nextInt();
+       HashMap<String,Integer> db = new HashMap<String,Integer>();
+       String ans[] = new String[n];
+       ans[0] = "OK";
+       String fir = sc.next();
+       db.put(fir,0);
+       for(int i = 1 ; i <= n-1 ; i++) {
+           String temp = sc.next();
+           if(check(db,temp)){
+               int k = db.get(temp);
+               db.put(temp,db.get(temp)+1);
+               String next = Genrate(db,temp,k);
+               db.put(next,0);
+               ans[i] = next;
+           }else{
+               ans[i] = "OK";
+               db.put(temp,0);
+           }
+       }
+       for(String s : ans)
+           System.out.println(s);
+    }
+}s
