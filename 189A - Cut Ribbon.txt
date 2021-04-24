@@ -1,0 +1,28 @@
+//link => https://codeforces.com/problemset/problem/189/A
+//sol 
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+import java.io.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        int  y , z , p = 0,i;
+        i = Math.min(a,Math.min(b,c));
+        i = n/i;
+        for(int x = i; x >= 0 ; x -- ){
+            for(y = 0 ; y <= i ; y++){
+                z= Math.abs((n-(a*x+b*y))/c);
+                if((a*x+b*y+c*z)==n){
+                    p=Math.max(p,x+y+z);
+                }
+            }
+        }
+        System.out.println(p);
+    }
+}
