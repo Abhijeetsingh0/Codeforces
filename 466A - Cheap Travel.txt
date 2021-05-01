@@ -1,0 +1,30 @@
+//link => https://codeforces.com/problemset/problem/466/A
+//sol 
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+import java.io.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int ans = 0;
+        if(a < (float)b/m){
+            ans += a*n;
+        }else{
+            int temp = n%m;
+            int k = n / m;
+            ans += k*b;
+            if(a*temp <= b){
+                ans += a*temp;
+            }else{
+                ans += b;
+            }
+        }
+        System.out.println(ans);
+    }
+}
