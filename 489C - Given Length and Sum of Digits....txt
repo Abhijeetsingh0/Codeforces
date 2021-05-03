@@ -1,0 +1,71 @@
+//link => https://codeforces.com/problemset/problem/489/C
+//sol 
+import java.math.BigInteger;
+import java.util.Locale;
+import java.util.*;
+import java.io.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+       int m = sc.nextInt();
+       int imuM = m;
+       String cor = String.valueOf(m);
+       int maxAns[] = new int[n];
+       for(int i = 0 ; i < n ; i++)
+           maxAns[i] = 0;
+       for(int i = 0 ; i < n ; i ++){
+           int temp = m - 9;
+           if(temp >= 0) {
+               m = temp;
+               maxAns[i] = 9;
+           }else{
+               maxAns[i] = m;
+               m = 0;
+           }
+       }
+       int[] minAns = new int[n];
+       int k = n-1;
+       int j = 0;
+       while(k >= 0){
+           minAns[j] = maxAns[k];
+           k --;
+           j ++;
+       }
+       boolean cond1 = true;
+       boolean cond2 = true;
+       int temp = 0;
+       if(minAns[0] == 0){
+           for(int i = 1 ; i < n ; i ++){
+               if(minAns[i] != 0){
+                   temp = i;
+                   minAns[0] = 1;
+                   minAns[i] = minAns[i]-1;
+                   cond1 =false;
+                   break;
+               }
+           }
+       }
+       for(int i = 0 ; i < n ; i ++){
+           if(maxAns[i] != 0){
+               cond2 = false;
+               break;
+           }
+       }
+       //System.out.println(m);
+       //printing ans
+        if(n == 1 && imuM == 0) {
+            System.out.println(0+" "+0);
+ 
+        }else if((cond1 && cond2 ) || cor.length()  > n  || m > 0){
+            System.out.println(-1+" "+-1);
+        }else{
+            for(int i : minAns)
+                System.out.print(i);
+            System.out.print(" ");
+            for(int i : maxAns)
+                System.out.print(i);
+        }
+    }
+}
