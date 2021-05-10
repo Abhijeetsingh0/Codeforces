@@ -1,0 +1,54 @@
+//link => https://codeforces.com/problemset/problem/344/B
+//sol 
+import java.util.*;
+ 
+public class Main {
+    public static boolean isEven(int num){
+        if(num% 2 == 0)
+            return true;
+        else
+            return false;
+    }
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int a = sc.nextInt();
+       int b = sc.nextInt();
+       int c = sc.nextInt();
+       int[] ans = new int[3];
+       boolean cond = true;
+       int temp = (a+b)-c;
+       if(isEven(temp)){
+           ans[0] = temp/2;
+       }else{
+           cond = false;
+       }
+ 
+        int temp2 = (b+c)-a;
+        if(isEven(temp2) && cond){
+            ans[1] = temp2/2;
+        }else{
+            cond = false;
+        }
+ 
+        int temp3 = (a+c)-b;
+        if(isEven(temp3) && cond){
+            ans[2] = temp3/2;
+        }else{
+            cond = false;
+        }
+ 
+        for(int i : ans){
+            if(i < 0 ){
+                cond = false;
+                break;
+            }
+        }
+ 
+        if(cond){
+            for(int i : ans)
+                System.out.print(i+" ");
+        }else{
+            System.out.println("Impossible");
+        }
+    }
+}
