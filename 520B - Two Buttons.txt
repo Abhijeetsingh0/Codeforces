@@ -1,0 +1,28 @@
+//link => https://codeforces.com/problemset/problem/520/B
+//sol 
+//package com.company;
+import java.util.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        if(n >m){
+            System.out.println(n-m);
+        }else{
+            int ans = 0;
+            while(m>n){
+                if(m%2==0){
+                    m = m/2;
+                }else{
+                    ans += 1;
+                    m = (m+1)/2;
+                }
+                ans += 1;
+            }
+            ans += n - m;
+            System.out.println(ans);
+        }
+    }
+}
