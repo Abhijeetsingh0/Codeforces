@@ -1,0 +1,25 @@
+//link => https://codeforces.com/problemset/problem/270/A
+//sol 
+import java.util.*;
+ 
+public class Main {
+    public static double numberOfSides(double angle){
+        return 360/(180-angle);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        double[] ans = new double[t];
+        for(int i = 0 ; i < t ; i++){
+            double temp = sc.nextDouble();
+            ans[i] = numberOfSides(temp);
+        }
+        for(double i : ans ){
+            if(i % 1== 0){
+                System.out.println("YES");
+            }else{
+                System.out.println("NO");
+            }
+        }
+    }
+}
