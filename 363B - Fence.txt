@@ -1,0 +1,33 @@
+//link => https://codeforces.com/problemset/problem/363/B
+//sol 
+import java.util.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i= 0; i< n ; i++)
+            arr[i] = sc.nextInt();
+        int currSum = 0;
+        for(int i = 0 ; i < m ; i ++){
+            currSum += arr[i];
+        }
+        int currLow = currSum;
+        int ans = 1;
+        for(int i = m ; i < n ; i++){
+            int temp = currSum;
+            temp += arr[i];
+            temp -= arr[i-m];
+            if(temp < currLow){
+               currLow = temp;
+               ans = i+1;
+               ans = ans-m;
+               ans += 1;
+            }
+            currSum = temp;
+        }
+        System.out.println(ans);
+    }
+}
