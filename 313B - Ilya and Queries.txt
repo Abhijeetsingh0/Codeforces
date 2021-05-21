@@ -1,0 +1,33 @@
+//link => https://codeforces.com/problemset/problem/313/B
+//sol 
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.next();
+        int len = input.length();
+        int preCal[] = new int[len];
+        preCal[0] = 0;
+        for(int i = 1 ; i < len ; i ++){
+            if(input.charAt(i) == input.charAt(i-1)){
+                preCal[i] = 1;
+            }
+        }
+        int arr[] = new int[len];
+        arr[0] = 0;
+        for(int i = 1; i < len ; i++){
+            if(preCal[i] == 0){
+                arr[i] = arr[i-1];
+            }else{
+                arr[i] = arr[i-1] + 1;
+            }
+        }
+        int num = sc.nextInt();
+        for(int i = 0 ; i < num ; i++){
+            int p = sc.nextInt();
+            int q = sc.nextInt();
+            System.out.println(arr[q-1] - arr[p-1]+" ");
+        }
+    }
+}
