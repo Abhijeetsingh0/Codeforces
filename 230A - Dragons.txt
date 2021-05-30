@@ -1,0 +1,61 @@
+//link => https://codeforces.com/problemset/problem/230/A
+//sol 
+//package com.company;
+import java.awt.*;
+import java.util.*;
+public class Main {
+    static int arr[] = new int[10000];
+    static int b[] = new int[10000];
+    public static void insertionSort(int arr[], int n)
+    {
+        int i, key, j,k;
+        for (i = 1; i < n; i++)
+        {
+            key = arr[i];
+            k=b[i];
+            j = i-1;
+
+            while (j >= 0 && arr[j] > key)
+            {
+                arr[j+1] = arr[j];
+
+                b[j+1]=b[j];
+                j = j-1;
+            }
+            arr[j+1] = key;
+            b[j+1]=k;
+        }
+
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+            boolean ans = true;
+
+            int n,s;
+            s = sc.nextInt();
+            n = sc.nextInt();
+            int i=0;
+
+            for ( i=0;i<n; i++) {
+                arr[i] =sc.nextInt();
+                b[i] =sc.nextInt();
+            }
+            insertionSort(arr,n);
+            for ( i=0; i<n; i++)
+            {
+                if ( s>arr[i])
+                {
+                    s+=b[i];
+                }
+                else {
+                   ans = false;
+                    break;
+                }
+            }
+            if(ans){
+                System.out.println("YES");
+            }else{
+                System.out.println("NO");
+            }
+        }
+    }
