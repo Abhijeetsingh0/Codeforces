@@ -1,0 +1,67 @@
+//link => https://codeforces.com/problemset/problem/451/B
+//sol 
+import java.util.*;
+ 
+public class Main {
+    public static boolean check(int arr[]){
+        boolean ans = true;
+        for(int i = 0 ; i < arr.length-1 ; i++){
+            if(arr[i] > arr[i+1]){
+                ans = false;
+                break;
+            }
+        }
+        return ans;
+    }
+    public static void helper(int[] arr, int l, int r){
+        while(l <= r){
+            swap(arr,l,r);
+            l ++; r--;
+        }
+    }
+    public static void swap(int[] arr, int x , int y){
+        int temp = arr[x];
+        arr[x] = arr[y];
+        arr[y] = temp;
+    }
+   public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+       int arr[] = new int[n];
+       if (n == 1) {
+           System.out.println("yes");
+           System.out.println(1+" "+1);
+       } else {
+           for (int i = 0; i < n; i++)
+               arr[i] = sc.nextInt();
+           int temp = 1;
+           int temp2 = 1;
+           for (int i = 0; i < n - 1; i++) {
+               if (arr[i] > arr[i + 1]) {
+                   temp = i;
+                   break;
+               }
+           }
+           for (int i = n - 2; i >= 0; i--) {
+               if (arr[i] > arr[i + 1]) {
+                   temp2 = i + 1;
+                   break;
+               }
+           }
+          // System.out.println(temp+" "+temp2); debug:)
+           helper(arr,temp,temp2);
+           if (check(arr)) {
+               System.out.println("yes");
+               if (temp == 1 && temp2 == 1)
+                   System.out.println(1 + " " + 1);
+               else {
+                   temp += 1;
+                   temp2 += 1;
+                   System.out.println(temp + " " + temp2);
+               }
+           } else {
+               System.out.println("no");
+           }
+       }
+   }
+}
