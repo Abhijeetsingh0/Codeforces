@@ -1,0 +1,40 @@
+//link => https://codeforces.com/contest/1335/problem/C
+//sol 
+//package com.company;
+import java.awt.*;
+import java.util.*;
+public class Main {
+    public static int helper(int[] arr){
+        HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+        ArrayList<Integer> unique = new ArrayList<Integer>();
+        for(int i : arr){
+            if(map.containsKey(i)){
+                map.put(i,map.get(i)+1);
+            }else{
+                map.put(i,1);
+                unique.add(i);
+            }
+        }
+        int sameKey = map.get(unique.get(0));
+        int sameCounter = 1;
+        for(int i : unique){
+            if(map.get(i) >= sameCounter){
+                sameKey = i;
+                sameCounter = map.get(i);
+            }
+        }
+       return Math.max(Math.min(unique.size()-1,sameCounter),Math.min(unique.size(),sameCounter-1));
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        for(int po =0 ; po < t; po++){
+            int n = sc.nextInt();
+            int arr[] = new int[n];
+            for(int i = 0 ; i < n ; i ++)
+                arr[i] = sc.nextInt();
+                System.out.println(helper(arr));
+        }
+    }
+}
+ 
