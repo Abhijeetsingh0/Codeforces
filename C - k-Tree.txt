@@ -1,0 +1,42 @@
+//link => https://codeforces.com/contest/431/problem/C
+//sol 
+import java.awt.*;
+import java.util.*;
+public class Main {
+     public static int n;
+     public static int k;
+     public static int d;
+     public static int[][] dp = new int[200][200];
+     public static int fun(int b ,int c){
+          if(b < 0){return 0;}
+          if(b == 0){
+               if(c >= d){
+                    return 1;
+               }else{
+                    return 0;
+               }
+          }
+          if(dp[b][c] != -1){
+               return dp[b][c];
+          }
+          int res = 0;
+          for(int i = 1; i <= k ; i++){
+               res += fun(b-i,Math.max(i,c));
+               res = res%1000000007;
+          }
+          res = res%1000000007;
+          return  dp[b][c] = res;
+     }
+     public static void main(String[] args){
+     Scanner sc = new Scanner(System.in);
+     n = sc.nextInt();
+     k = sc.nextInt();
+     d = sc.nextInt();
+     for(int i =0 ; i < 200; i ++){
+          for(int j = 0; j < 200 ; j++){
+               dp[i][j] = -1;
+          }
+     }
+     System.out.print(fun(n,0));
+     }
+}
