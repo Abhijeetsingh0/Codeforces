@@ -1,0 +1,32 @@
+//link => https://codeforces.com/problemset/problem/996/A
+//sol 
+import java.awt.*;
+import java.util.*;
+public class Main {
+    public static void main(String[] args){
+       Scanner sc = new Scanner(System.in);
+       long input = sc.nextInt();
+       long ans = 0;
+       while(input >= 100){
+           input = input - 100;
+           ans++;
+       }
+       while(input >= 20){
+           input -= 20;
+           ans ++;
+       }
+       while(input >= 10){
+           input -= 10;
+           ans ++;
+       }
+       while(input >= 5){
+           input -= 5;
+           ans ++;
+       }
+       while(input > 0){
+           input -= 1;
+           ans ++;
+       }
+       System.out.println(ans);
+    }
+}
