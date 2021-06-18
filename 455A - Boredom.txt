@@ -1,0 +1,24 @@
+//link => https://codeforces.com/problemset/problem/455/A
+//sol 
+import java.awt.*;
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        long count[] = new long[1000000];
+        long f[] = new long[1000000];
+        long maxVal = Integer.MIN_VALUE;
+        for(int i = 0 ; i < num ; i++){
+            long temp = sc.nextInt();
+            count[(int)temp]++;
+            maxVal = Math.max(maxVal,temp);
+        }
+        f[0] = count[0];
+        f[1] = count[1];
+        for(int i = 2 ; i < 1000000; i++ ){
+            f[i] = Math.max(f[i-1],f[i-2]+i*count[i]);
+        }
+    System.out.println(f[1000000-1]);
+    }
+}
