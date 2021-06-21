@@ -1,0 +1,27 @@
+//link => https://codeforces.com/problemset/problem/327/A
+//sol
+import java.awt.*;
+import java.util.*;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int zeros = 0, ones = 0, temp = 0;
+        for(int i = 0; i < n ; i++){
+            int k = sc.nextInt();
+            if(k == 1){
+                ones++;
+                zeros--;
+                zeros = Math.max(0,zeros);
+            }else{
+                zeros++;
+                temp = Math.max(temp,zeros);
+            }
+        }
+        if(ones == n){
+            System.out.println(n-1);
+        }else{
+            System.out.println(temp+ones);
+        }
+    }
+}
