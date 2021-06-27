@@ -1,0 +1,34 @@
+//link => https://codeforces.com/contest/550/problem/A
+//sol 
+import java.awt.*;
+import java.util.*;
+ 
+public class Main{
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+ 
+        //first AB
+        String fab1 = str.replaceFirst("AB", ".");
+        String fab2 = fab1.replaceFirst("BA",".");
+ 
+ 
+        //first BA
+        String fba1 = str.replaceFirst("BA", ".");
+        String fba2 = fba1.replaceFirst("AB",".");
+ 
+        int len = str.length();
+        int num = Math.max(len-fab2.length(),len - fba2.length());
+ 
+ 
+        //System.out.println(str+" "+fab2+" "+fba2 +" "+num);
+ 
+        if(num == 2){
+            System.out.println("YES");
+        }else{
+            System.out.println("NO");
+        }
+ 
+    }
+}
