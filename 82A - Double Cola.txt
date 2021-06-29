@@ -1,0 +1,20 @@
+//link => https://codeforces.com/problemset/problem/82/A
+//sol 
+import java.awt.*;
+import java.util.*;
+ 
+public class Main{
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long num = sc.nextLong();
+        int i = 0;
+        while(num > Math.ceil(5*Math.pow(2,i))){
+            num -= Math.ceil(5*Math.pow(2,i));
+            i ++;
+        }
+        long ans = (num-1)/(long)Math.pow(2,i);
+        String arr[] = { "Sheldon", "Leonard", "Penny", "Rajesh", "Howard"};
+        System.out.println(arr[(int)ans]);
+    }
+}
