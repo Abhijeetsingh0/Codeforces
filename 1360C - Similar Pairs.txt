@@ -1,0 +1,47 @@
+//link => https://codeforces.com/problemset/problem/1360/C
+//sol 
+import java.awt.*;
+import java.util.*;
+ 
+public class Main{
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        for(int tt = 0 ; tt < t ; tt++){
+            int n = sc.nextInt();
+            ArrayList<Integer> evenN = new ArrayList<Integer>();
+            ArrayList<Integer> oddN = new ArrayList<Integer>();
+            HashMap<Integer,Boolean> map = new HashMap<Integer,Boolean>();
+            for(int i = 0 ; i < n ; i++){
+                int temp = sc.nextInt();
+                if(temp % 2 == 0){
+                    evenN.add(temp);
+                }else{
+                    oddN.add(temp);
+                    map.put(temp +1 , true);
+                    map.put(temp -1 , true);
+                }
+            }
+            int eSize = evenN.size();
+            int oSize = oddN.size();
+            if(eSize % 2 == 0 && oSize % 2 == 0){
+                System.out.println("YES");
+            }else{
+                for(int i : evenN){
+                    if(map.containsKey(i)){
+                        eSize --;
+                        oSize --;
+                        break;
+                    }
+                }
+                if(eSize % 2 == 0 && oSize % 2 == 0){
+                    System.out.println("YES");
+                }else{
+                    System.out.println("NO");
+                }
+            }
+        }
+    }
+}
+ 
