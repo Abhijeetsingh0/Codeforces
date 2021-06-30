@@ -1,0 +1,58 @@
+//link => https://codeforces.com/problemset/problem/1363/A
+//sol 
+import java.awt.*;
+import java.util.*;
+ 
+public class Main{
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        for(int tt = 0 ; tt < t ; tt ++) {
+            int a = sc.nextInt();
+            int x = sc.nextInt();
+            int sum = 0;
+            ArrayList<Integer> even = new ArrayList<Integer>();
+            ArrayList<Integer> odd = new ArrayList<Integer>();
+            for (int i = 0; i < a; i++) {
+                int temp = sc.nextInt();
+                sum += temp;
+                if (temp % 2 == 0)
+                    even.add(temp);
+                else
+                    odd.add(temp);
+            }
+            if(x == a){
+                if(!(sum % 2 ==0)){
+                    System.out.println("YES");
+                }else{
+                    System.out.println("NO");
+                }
+            }else if(odd.size() == 0) {
+                System.out.println("NO");
+            }else{
+                 if(odd.size() > x){
+                     if(x % 2 == 0){
+                         x -= x-1;
+                     }else{
+                         x -= x;
+                     }
+                 }else{
+                     if(odd.size() % 2 ==0){
+                         x -= odd.size()-1;
+                     }else{
+                         x -= odd.size();
+                     }
+                 }
+                 //System.out.println("sdfs"+x);
+                 if(x - even.size() <= 0){
+                     System.out.println("YES");
+                 }else{
+                     System.out.println("NO");
+                 }
+            }
+        }
+    }
+}
+ 
+ 
