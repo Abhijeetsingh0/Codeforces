@@ -1,0 +1,49 @@
+//link => https://codeforces.com/problemset/problem/1352/B
+//sol 
+import java.awt.*;
+import java.util.*;
+ 
+public class Main{
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int tt = sc.nextInt();
+        for(int t = 0 ; t < tt ; t ++){
+            long n = sc.nextLong();
+            long k = sc.nextLong();
+            long ke = n;
+            long ko = n;
+            ArrayList<Long> odd = new ArrayList<Long>();
+            ArrayList<Long> even = new ArrayList<Long>();
+            for(long i = 1 ; i <= k-1; i++){
+                odd.add((long)1);
+                ke -= 1;
+                even.add((long)2);
+                ko -= 2;
+            }
+            odd.add(ke);
+            even.add(ko);
+            if(odd.get((int)k-1) < 0 && even.get((int)k-1) < 0){
+                System.out.println("NO");
+            }else{
+                if(even.get((int)k-1) % 2 ==0 && even.get((int)k-1) > 0){
+                    System.out.println("YES");
+                    for(long i : even){
+                        System.out.print(i+" ");
+                    }
+                    System.out.println();
+                }else if(odd.get((int)k-1) % 2 != 0 && odd.get((int)k-1) > 0){
+                    System.out.println("YES");
+                    for(long j : odd){
+                        System.out.print(j+" ");
+                    }
+                    System.out.println();
+                }else{
+                    System.out.println("NO");
+                }
+            }
+        }
+    }
+}
+ 
+ 
