@@ -1,0 +1,95 @@
+//link => https://codeforces.com/problemset/problem/1328/C
+//sol
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+import java.util.*;
+ 
+public class Main{
+ 
+	//Just an input class to read input fast for CP :)
+
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+ 
+        public FastReader()
+        {
+            br = new BufferedReader(
+                    new InputStreamReader(System.in));
+        }
+ 
+        String next()
+        {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+ 
+        int nextInt() { return Integer.parseInt(next()); }
+ 
+        long nextLong() { return Long.parseLong(next()); }
+ 
+        double nextDouble()
+        {
+            return Double.parseDouble(next());
+        }
+ 
+        String nextLine()
+        {
+            String str = "";
+            try {
+                str = br.readLine();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
+
+    //main logic 
+ 
+    public static void main(String[] args) {
+        FastReader s = new FastReader();
+        int tt = s.nextInt();
+        for(int t = 0 ; t < tt ; t++){
+            int len  = s.nextInt();
+            String num = s.next();
+            boolean first1 = false;
+            StringBuilder a = new StringBuilder();
+            StringBuilder b= new StringBuilder();
+            a.append('1');
+            b.append('1');
+            for(int i = 1 ; i < len ; i++){
+                if(first1){
+                    a.append('0');
+                    b.append(num.charAt(i));
+                }else if(num.charAt(i) == '0'){
+                    a.append('0');
+                    b.append('0');
+                }else if(num.charAt(i) == '2'){
+                    a.append('1');
+                    b.append('1');
+                }else{
+                    a.append('1');
+                    b.append('0');
+                    first1 = true;
+                }
+            }
+            System.out.println(a.toString());
+            System.out.println(b.toString());
+        }
+    }
+}
+ 
+ 
