@@ -1,0 +1,99 @@
+//link => https://codeforces.com/problemset/problem/1360/D
+//sol 
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+import java.util.*;
+ 
+public class Main{
+ 
+    //class to take fast input for CP :)
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+ 
+        public FastReader()
+        {
+            br = new BufferedReader(
+                    new InputStreamReader(System.in));
+        }
+ 
+        String next()
+        {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+ 
+        int nextInt() { return Integer.parseInt(next()); }
+ 
+        long nextLong() { return Long.parseLong(next()); }
+ 
+        double nextDouble()
+        {
+            return Double.parseDouble(next());
+        }
+ 
+        String nextLine()
+        {
+            String str = "";
+            try {
+                str = br.readLine();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
+ 
+    static boolean isPrime(long n)
+    {
+        if (n <= 1)
+            return false;
+        else if (n == 2)
+            return true;
+        else if (n % 2 == 0)
+            return false;
+        for (int i = 3; i <= Math.sqrt(n); i += 2)
+        {
+            if (n % i == 0)
+                return false;
+        }
+        return true;
+    }
+ 
+    //start from here
+ 
+    public static void main(String[] args) {
+        FastReader sc = new FastReader();
+        int tt = sc.nextInt();
+        for(int t = 0 ; t < tt ; t++){
+          long n = sc.nextInt();
+          long k = sc.nextInt();
+            long ans = n;
+ 
+            for (int j = 1; j * j <= n; j++) {
+                if (n % j == 0) {
+                    if (j <= k) {
+                        ans = Math.min(ans, n / j);
+                    }
+ 
+                    if (n / j <= k) {
+                        ans = Math.min(ans, j);
+                    }
+                }
+            }
+            System.out.println(ans);
+        }
+    }
+}
