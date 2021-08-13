@@ -1,0 +1,110 @@
+//link => https://codeforces.com/problemset/problem/1520/D
+//sol 
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+import java.util.*;
+ 
+public class Main {
+ 
+    //class to take fast input for CP :)
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+ 
+        public FastReader() {
+            br = new BufferedReader(
+                    new InputStreamReader(System.in));
+        }
+ 
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+ 
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+ 
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+ 
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+ 
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
+ 
+    //start from here
+    static void rev(int[] a){
+        int l = 0;
+        int r = a.length-1;
+        while(r>l){
+            int temp = a[r];
+            a[r] = a[l];
+            a[l] = temp;
+            l ++;
+            r --;
+        }
+    }
+ 
+    public static long fun(int n ){
+        long ans = 0;
+        for(int i = 1; i <= n ; i++){
+            ans += i;
+        }
+        return ans;
+    }
+ 
+    public static void main(String[] args) {
+        FastReader sc = new FastReader();
+        int tt = sc.nextInt();
+        for(int t = 0; t < tt ; t++){
+            int n = sc.nextInt();
+            int arr[] = new int[n+1];
+            for(int i = 1 ; i <= n ; i++){
+                arr[i] = sc.nextInt();
+            }
+            HashMap<Integer,Integer> map = new HashMap<>();
+            ArrayList<Integer> unique = new ArrayList<>();
+            for(int  i = 1 ; i <= n ; i++){
+                int temp = arr[i] - i;
+                if(map.containsKey(temp)){
+                    map.put(temp,map.get(temp)+1);
+                    //System.out.println("here");
+                }else{
+                    map.put(temp,0);
+                    unique.add(temp);
+                }
+            }
+            long ans = 0;
+            for(int i : unique){
+                if(map.get(i) >= 1) {
+                    ans += fun(map.get(i) );
+                }
+//                System.out.print(i+" "+ map.get(i));
+//                System.out.println();
+            }
+            System.out.println(ans);
+        }
+    }
+}
