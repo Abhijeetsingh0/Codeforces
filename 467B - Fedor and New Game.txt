@@ -1,0 +1,96 @@
+//link = > https://codeforces.com/problemset/problem/467/B
+//sol 
+package com.company;
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+import java.util.*;
+
+public class Main {
+
+    //class to take fast input for CP :)
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public FastReader() {
+            br = new BufferedReader(
+                    new InputStreamReader(System.in));
+        }
+
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
+
+    public static int bitSetCount(int num){
+        int count = 0;
+        while(num > 0){
+            num = num&(num-1);
+            count ++;
+        }
+        return count;
+    }
+
+
+    public static void main(String[] args) {
+        FastReader sc = new FastReader();
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int k = sc.nextInt();
+        int arr[] = new int[m+1];
+        int ans = 0;
+        int friends = 0;
+        for(int i = 0 ; i < m+1 ; i++)
+            arr[i] = sc.nextInt();
+
+        for (int i = 0; i < m; i++)
+        {
+            int t = 0;
+            for (int j = 0; j < n; j++)
+                if (((arr[i] >> j) & 1) != ((arr[m] >> j) & 1))
+                    t++;
+            if(t <= k)
+                friends++;
+        }
+        System.out.println(friends);
+    }
+}
+
+
+
+
+
+
