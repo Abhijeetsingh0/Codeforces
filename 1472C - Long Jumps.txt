@@ -1,0 +1,123 @@
+//link => https://codeforces.com/problemset/problem/1472/C
+//sol 
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+import java.util.Arrays;
+import java.util.Comparator;
+ 
+public class Main {
+    // to read input fast
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+ 
+        public FastReader() {
+            br = new BufferedReader(
+                    new InputStreamReader(System.in));
+        }
+ 
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+ 
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+ 
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+ 
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+ 
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
+ 
+ 
+    static void printList(int[][] arr){
+        for(int[] i : arr){
+            for(int j : i){
+                System.out.print(j+" ");
+            }
+            System.out.println();
+        }
+    }
+ 
+    public static int man(int[] arr, int n) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == n)
+                return i + 1;
+        }
+        return -1;
+    }
+ 
+    public static  void Sort2DArrayBasedOnColumnNumber (int[][] array, final int columnNumber){
+        Arrays.sort(array, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] first, int[] second) {
+                if(first[columnNumber-1] > second[columnNumber-1]) return 1;
+                else return -1;
+            }
+        });
+    }
+ 
+    static void swap(int a, int b){
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+ 
+    static void swap(int[] arr){
+        int temp = arr[0];
+        arr[0] = arr[1];
+        arr[1] = temp;
+    }
+
+ 
+    public static void main(String[] args) {
+        FastReader sc = new FastReader();
+        int t = sc.nextInt();
+        while(t-- > 0) {
+            int n = sc.nextInt();
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++) {
+                arr[i] = sc.nextInt();
+            }
+ 
+            int[] dp = new int[n];
+ 
+            for(int i = n-1 ; i >= 0 ; i --){
+                dp[i] = arr[i];
+                int j = arr[i]+i;
+                if(j < n){
+                    dp[i] += dp[j];
+                }
+            }
+            int ans = Integer.MIN_VALUE;
+            for(int i : dp){
+                ans = Math.max(ans,i);
+            }
+            System.out.println(ans);
+        }
+    }
+}
