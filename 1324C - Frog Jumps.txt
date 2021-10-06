@@ -1,0 +1,78 @@
+//link => https://codeforces.com/problemset/problem/1324/C
+//sol 
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Comparator;
+ 
+public class Main {
+    // to read input fast
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+ 
+        public FastReader() {
+            br = new BufferedReader(
+                    new InputStreamReader(System.in));
+        }
+ 
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+ 
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+ 
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+ 
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+ 
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
+ 
+    public static void main(String[] args) {
+        FastReader sc = new FastReader();
+        int t = sc.nextInt();
+        while(t-->0){
+            String input = sc.next();
+            int ans = 1;
+//            boolean itsL = true;
+            int Llen = 1;
+            for(int i = 0 ; i < input.length() ; i++){
+                char curr = input.charAt(i);
+                if(curr == 'L'){
+                    Llen ++;
+                }else{
+                    Llen = 1;
+                }
+                ans = Math.max(ans,Llen);
+            }
+            System.out.println(ans);
+        }
+    }
+}
+ 
