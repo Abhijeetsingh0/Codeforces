@@ -1,0 +1,98 @@
+//link => https://codeforces.com/problemset/problem/349/A
+//sol 
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Comparator;
+ 
+public class Main {
+    // to read input fast
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+ 
+        public FastReader() {
+            br = new BufferedReader(
+                    new InputStreamReader(System.in));
+        }
+ 
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+ 
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+ 
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+ 
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+ 
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
+ 
+    public static void main(String[] args) {
+        FastReader sc = new FastReader();
+        int n = sc.nextInt();
+        boolean ans = true;
+        int mon25 = 0;
+        int mon50 = 0;
+        int mon100 = 0;
+        for(int i = 0 ; i < n ; i++){
+            int curr = sc.nextInt();
+            if(curr > 25){
+                if(curr == 50){
+                    if(mon25 == 0){
+                        ans = false;
+                        break;
+                    }else{
+                        mon50 += 50;
+                        mon25 -= 25;
+                    }
+                }else{
+                    if(mon50 > 0 && mon25 > 0) {
+                        mon100 += 100;
+                        mon50 -= 50;
+                        mon25 -= 25;
+                    }else if(mon25 >= 75){
+                        mon100 += 100;
+                        mon25 -= 75;
+                    }else{
+                        ans = false;
+                        break;
+                    }
+                }
+            }else{
+                mon25 += 25;
+            }
+        }
+        if(ans){
+            System.out.println("YES");
+        }else{
+            System.out.println("NO");
+        }
+    }
+}
